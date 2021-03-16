@@ -8,6 +8,12 @@ object Hello extends App {
 
   implicit val session = AutoSession
 
+  GlobalSettings.loggingSQLAndTime = new LoggingSQLAndTimeSettings(
+    enabled = true,
+    singleLineMode = true,
+    logLevel = 'DEBUG
+  )
+
   sql"""
     create table members (
       id serial not null primary key,
